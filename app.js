@@ -1,15 +1,12 @@
-const fs = require('fs');
-const zlib = require('zlib');
-const gunzip = zlib.createGunzip();
-/*
-//compressing a file to gzip
-const readStream = fs.createReadStream('./example.txt', 'utf8');
-const writeStream = fs.createWriteStream('example2.txt.gz');
+const http = require('http');
+const server = http.createServer((req, res)=>{
+    if (req.url === '/') {
+        res.write('Hello world from nodejs');
+        res.end();
+    }else{
+        res.write('using some other domain');
+        res.end();
+    }
+});
 
-readStream.pipe(gzip).pipe(writeStream);
-*/
-
-//Uncompressing a file gzip with gunzip
-const readStream =fs.createReadStream('./example2.txt.gz');
-const writeStream =fs.createWriteStream('uncompressed.txt');
-readStream.pipe(gunzip).pipe(writeStream);
+server.listen('3000');
