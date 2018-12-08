@@ -1,12 +1,10 @@
 const http = require('http');
+const fs = require('fs');
 const server = http.createServer((req, res)=>{
-    if (req.url === '/') {
-        res.write('Hello world from nodejs');
-        res.end();
-    }else{
-        res.write('using some other domain');
-        res.end();
-    }
-});
-
-server.listen('3000');
+    const readStream = fs.createReadStream('./static/example.json');
+    // html --> text/html
+    //Image --> image/png
+    //Json --> application/json
+    res.writeHead(200, {'Content-type': 'application/json'});
+    readStream.pipe(res);
+}).listen('3000');
