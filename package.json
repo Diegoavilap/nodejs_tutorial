@@ -8,5 +8,15 @@
   },
   "author": "diego",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "lodash": "^4.17.11" 
+    //major.minor.path
+    //path --> implements somes bugs fixed
+    //minor --> add some functionality deprecated some functionality
+    //major --> breaking change
+    //those symbols below meaning that i want to update the package 
+    //every time i update my dependencies
+    //^ --> 4.x.x -->minors or path updates
+    //~ --> 4.17.x --> only path updates
+  }
 }
