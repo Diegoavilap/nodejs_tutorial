@@ -1,20 +1,13 @@
 const express = require('express');
 const path = require('path');
-const bodyParser = require('body-parser');
 const app = express();
 
-app.use(bodyParser.json());
-app.use((req,res,next)=>{
-    console.log(req.url, req.method);
-    req.banana = 'banana';
+app.use('/public', express.static(path.join(__dirname, 'static')));
+app.set('view engine', 'ejs');
 
-    next();
-});
+const people = require('./routes/people');
 
-app.get('/', (req,res)=>{
-    console.log(req.banana);
-    res.send('Middleware');
-});
+app.use('/people', people);
 
 
 
