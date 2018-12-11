@@ -13,7 +13,7 @@
     </head>
     <body>
         
-        <form action="/" method="POST" role="form">
+        <form action="/" method="POST" role="form" id="form">
             <legend>Form title</legend>
         
             <div class="form-group">
@@ -27,8 +27,25 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
         
-        <!-- Bootstrap JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="js/example.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(()=>{
+                $('#form').submit((e)=>{
+                    e.preventDefault();
+                    $.ajax({
+                    url: '/' ,
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify($('#form').serializeArray()),
+                    success: (response)=>{
+                        console.log('sucessfully got response');
+                        console.log(response);
+
+                    }
+                    });
+                });
+            });
+        </script>
     </body>
 </html>
