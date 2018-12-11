@@ -7,9 +7,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Title Page</title>
         <link href="css/main.css" rel="stylesheet">
+        <!-- Bootstrap CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
     </head>
     <body>
-        <h1 class="text-center">Hello World!!</h1>
+        
+        <form action="/" method="POST" role="form">
+            <legend>Form title</legend>
+        
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" name="email" id="" placeholder="Input field">
+            </div>
+            <div class="form-group">
+                <label for="email">Password</label>
+                <input type="password" class="form-control" name="password">
+            </div>        
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        
+        <!-- Bootstrap JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="js/example.js"></script>
     </body>
 </html>
